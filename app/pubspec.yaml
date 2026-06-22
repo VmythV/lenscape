@@ -25,7 +25,7 @@ dependencies:
 
   # 不可变模型 / 序列化注解
   freezed_annotation: ^3.0.0
-  json_annotation: ^4.9.0
+  json_annotation: ^4.12.0
 
   intl: any
 

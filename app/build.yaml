@@ -1,0 +1,9 @@
+# JSON 字段统一按 snake_case 映射（Dart 用 camelCase，JSON 用 snake_case，
+# 与 docs/data-model.md 的字段命名一致）。
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          field_rename: snake
+          explicit_to_json: true
