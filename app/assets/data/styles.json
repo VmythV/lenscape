@@ -1,0 +1,80 @@
+[
+  {
+    "style_id": "korean",
+    "style_name": "韩系风格",
+    "style_description": "干净柔和、氛围感强，重妆容质感与光线，适合室内与咖啡店半身近景。",
+    "sample_images": ["images/styles/korean_01.png"],
+    "suitable_scenes": ["cafe", "indoor", "mall", "street"],
+    "suitable_person_types": ["female", "couple", "unlimited"],
+    "default_orientation": "vertical",
+    "default_framing": "half_body",
+    "composition_rules": ["center", "subject_first"],
+    "camera_rules": ["chest", "top_down"],
+    "sort_weight": 90
+  },
+  {
+    "style_id": "japanese",
+    "style_name": "日系清新",
+    "style_description": "自然光、低饱和、留白多，安静通透，适合户外、公园与窗边场景。",
+    "sample_images": ["images/styles/japanese_01.png"],
+    "suitable_scenes": ["park", "outdoor", "cafe", "indoor"],
+    "suitable_person_types": ["female", "unlimited", "couple"],
+    "default_orientation": "vertical",
+    "default_framing": "half_body",
+    "composition_rules": ["right_third", "balanced"],
+    "camera_rules": ["chest", "level"],
+    "sort_weight": 85
+  },
+  {
+    "style_id": "hongkong",
+    "style_name": "港风复古",
+    "style_description": "浓郁色调、复古氛围，强调情绪与质感，适合街道、商场与室内霓虹环境。",
+    "sample_images": ["images/styles/hongkong_01.png"],
+    "suitable_scenes": ["street", "mall", "indoor"],
+    "suitable_person_types": ["female", "male", "unlimited"],
+    "default_orientation": "vertical",
+    "default_framing": "half_body",
+    "composition_rules": ["center", "subject_first"],
+    "camera_rules": ["eye_level", "level"],
+    "sort_weight": 75
+  },
+  {
+    "style_id": "street",
+    "style_name": "街拍风格",
+    "style_description": "自然、松弛、随性，强调走动与环境氛围，适合街道、商场外与景区。",
+    "sample_images": ["images/styles/street_01.png"],
+    "suitable_scenes": ["street", "mall", "scenic", "outdoor"],
+    "suitable_person_types": ["male", "female", "unlimited", "couple"],
+    "default_orientation": "vertical",
+    "default_framing": "full_body",
+    "composition_rules": ["right_third", "balanced"],
+    "camera_rules": ["chest", "bottom_up"],
+    "sort_weight": 80
+  },
+  {
+    "style_id": "travel",
+    "style_name": "旅行大片",
+    "style_description": "突出景色与人物的关系，画面开阔有故事感，适合景区、海边与户外。",
+    "sample_images": ["images/styles/travel_01.png"],
+    "suitable_scenes": ["scenic", "seaside", "outdoor", "park"],
+    "suitable_person_types": ["female", "male", "unlimited", "couple"],
+    "default_orientation": "vertical",
+    "default_framing": "full_body",
+    "composition_rules": ["right_third", "scene_first"],
+    "camera_rules": ["chest", "bottom_up"],
+    "sort_weight": 85
+  },
+  {
+    "style_id": "couple",
+    "style_name": "情侣写真",
+    "style_description": "强调两人互动与亲密感，自然牵手、对视与并肩，适合多数生活与景点场景。",
+    "sample_images": ["images/styles/couple_01.png"],
+    "suitable_scenes": ["cafe", "street", "scenic", "seaside", "park"],
+    "suitable_person_types": ["couple"],
+    "default_orientation": "vertical",
+    "default_framing": "half_body",
+    "composition_rules": ["center", "balanced"],
+    "camera_rules": ["chest", "level"],
+    "sort_weight": 80
+  }
+]

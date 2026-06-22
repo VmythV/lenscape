@@ -1,0 +1,37 @@
+[
+  {
+    "person_type": "male",
+    "person_name": "男生",
+    "direction": "自然、松弛、力量感、街拍感、利落感",
+    "min_people": 1,
+    "max_people": 1
+  },
+  {
+    "person_type": "female",
+    "person_name": "女生",
+    "direction": "显身材、氛围感、柔和感、精致感",
+    "min_people": 1,
+    "max_people": 1
+  },
+  {
+    "person_type": "unlimited",
+    "person_name": "不限性别",
+    "direction": "走路、回头、侧身、坐姿、看远方等通用姿势",
+    "min_people": 1,
+    "max_people": 1
+  },
+  {
+    "person_type": "couple",
+    "person_name": "情侣",
+    "direction": "并肩、牵手、对视、错位站位、互动动作",
+    "min_people": 2,
+    "max_people": 2
+  },
+  {
+    "person_type": "group",
+    "person_name": "多人",
+    "direction": "队形、层次、前后错位、左右分布、高低关系",
+    "min_people": 3,
+    "max_people": 8
+  }
+]
