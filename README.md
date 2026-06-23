@@ -50,7 +50,35 @@ MVP 建议优先实现：
 - [LLM 接口契约与 Prompt](docs/llm-spec.md)
 - [实现 TODOLIST](docs/todolist.md)
 
+## 工程结构
+
+| 目录 | 内容 |
+| ---- | ---- |
+| `docs/` | 产品需求、可行性、技术架构、数据模型、LLM 接口、TODOLIST |
+| `app/` | Flutter 客户端（iOS / Android / Web） |
+| `server/` | 后端代理（BFF）：多 provider LLM 抽象 + 两个能力接口 |
+
+## 运行
+
+后端代理：
+
+```bash
+cd server && npm install
+cp .env.example .env   # 可选：填入 ANTHROPIC_API_KEY 或 OPENAI_API_KEY
+npm run dev            # 未配置 Key 时接口优雅降级
+```
+
+客户端：
+
+```bash
+cd app && flutter pub get
+flutter run            # 或 flutter run -d chrome
+# 接后端：flutter run --dart-define=LENSCAPE_API_BASE=http://localhost:8787 \
+#                      --dart-define=LENSCAPE_API_TOKEN=dev-token-change-me
+```
+
 ## 当前阶段
 
-产品设计与技术方案阶段。产品需求、可行性、技术架构、数据模型、LLM 接口已成文，下一步进入工程实现。
+MVP 核心闭环已实现并通过测试（客户端 23 项 + 后端 9 项），CI 已接入。
+姿势模板图片为占位图，待 AI 文生图 + 人工审核的真实素材按相同路径覆盖。
 

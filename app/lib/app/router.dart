@@ -27,7 +27,11 @@ final appRouter = GoRouter(
     GoRoute(path: Routes.style, builder: (_, _) => const StylePage()),
     GoRoute(path: Routes.person, builder: (_, _) => const PersonPage()),
     GoRoute(path: Routes.scene, builder: (_, _) => const ScenePage()),
-    GoRoute(path: Routes.guidance, builder: (_, _) => const GuidancePage()),
+    GoRoute(
+      path: Routes.guidance,
+      builder: (_, state) =>
+          GuidancePage(poseId: state.uri.queryParameters['pose']),
+    ),
     GoRoute(path: Routes.favorite, builder: (_, _) => const FavoritePage()),
     GoRoute(path: Routes.history, builder: (_, _) => const HistoryPage()),
   ],
