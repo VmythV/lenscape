@@ -23,6 +23,13 @@ class _ScenePageState extends ConsumerState<ScenePage> {
   bool _recommending = false;
 
   @override
+  void initState() {
+    super.initState();
+    // 若从首页「常用场景」快捷入口预选了场景，进入时回填。
+    _sceneId = ref.read(selectionProvider).sceneId;
+  }
+
+  @override
   void dispose() {
     _noteController.dispose();
     super.dispose();

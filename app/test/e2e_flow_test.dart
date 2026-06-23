@@ -70,8 +70,8 @@ void main() {
       await tap(find.text('开始拍摄指导'));
       expect(find.text('选择拍摄风格'), findsOneWidget);
 
-      // 选「韩系风格」→ 人物
-      await tap(find.text('韩系风格'));
+      // 选「韩系风格」→ 人物（点风格页卡片，区别于首页同名快捷入口）
+      await tap(find.widgetWithText(Card, '韩系风格'));
       expect(find.text('选择人物类型'), findsOneWidget);
 
       // 选「女生」→ 场景
