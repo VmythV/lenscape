@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../core/widgets/app_image.dart';
 import '../../data/local/local_storage.dart';
@@ -92,7 +93,19 @@ class _GuidancePageState extends ConsumerState<GuidancePage> {
           _relaxBanner(relaxedScene, relaxedPerson),
         ],
         const SizedBox(height: 12),
-        Text(current.poseName, style: Theme.of(context).textTheme.titleLarge),
+        Row(
+          children: [
+            Expanded(
+              child: Text(current.poseName,
+                  style: Theme.of(context).textTheme.titleLarge),
+            ),
+            IconButton(
+              tooltip: '分享这套拍摄指导',
+              icon: const Icon(Icons.ios_share),
+              onPressed: () => _share(current, style, person, scene),
+            ),
+          ],
+        ),
         const SizedBox(height: 12),
         _images(current),
         const SizedBox(height: 16),
@@ -200,6 +213,29 @@ class _GuidancePageState extends ConsumerState<GuidancePage> {
         Text(label, style: Theme.of(context).textTheme.labelSmall),
       ],
     );
+  }
+
+  /// 分享当前这套拍摄指导（系统分享面板）。优先用已就绪的 LLM 文案，否则用模板兜底。
+  Future<void> _share(
+    PoseTemplate pose,
+    Style? style,
+    PersonTypeInfo? person,
+    Scene? scene,
+  ) async {
+    final copy = await (_copyFutures[pose.poseId] ?? Future.value(_templateCopy(pose)));
+    final context = [
+      if (style != null) '风格：${style.styleName}',
+      if (person != null) '人物：${person.personName}',
+      if (scene != null) '场景：${scene.sceneName}',
+    ].join('｜');
+    final steps = [
+      for (var i = 0; i < copy.steps.length; i++) '${i + 1}. ${copy.steps[i]}',
+    ].join('\n');
+    final tips = copy.tips.isEmpty
+        ? ''
+        : '\n\n注意事项：\n${copy.tips.map((t) => '· $t').join('\n')}';
+    final text = '镜界 · ${pose.poseName}\n$context\n\n拍摄步骤：\n$steps$tips';
+    await Share.share(text, subject: '镜界拍摄指导 · ${pose.poseName}');
   }
 
   /// 基于模板字段拼出的兜底文案（即时展示，待 LLM 文案就绪后替换）。

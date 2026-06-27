@@ -23,6 +23,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
 
+  # 分享拍摄指导（系统分享面板）
+  share_plus: ^10.1.4
+
   # 不可变模型 / 序列化注解
   freezed_annotation: ^3.0.0
   json_annotation: ^4.12.0
